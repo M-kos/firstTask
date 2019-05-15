@@ -12,5 +12,18 @@ function Add() {
         return alert('Введите число!');
 
     //Fix неточности вычисления
-    alert(+(val1 + val2).toFixed(15));
+    let result = +(val1 + val2).toFixed(15);
+    
+    modalOpen(result);
+}
+function modalOpen(res) {
+    const modal = document.querySelector('.modal');
+    const result = document.querySelector('#result');
+    const closeBtn = document.querySelector('#close-window');
+
+    modal.style.display = 'block';
+    result.innerHTML = res
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
 }
